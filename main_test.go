@@ -47,6 +47,5 @@ func TestMainHandlerWhenCountMoreThanTotal(t *testing.T) {
 	require.Equal(t, responseRecorder.Code, http.StatusOK)
 	assert.NotEmpty(t, responseRecorder.Body.String())
 
-	actualCount := len(strings.Split(responseRecorder.Body.String(), ","))
-	assert.Equal(t, actualCount, 4)
+	assert.Len(t, strings.Split(responseRecorder.Body.String(), ","), 4)
 }
